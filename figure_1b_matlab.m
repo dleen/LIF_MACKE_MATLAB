@@ -1,11 +1,9 @@
 clear all;
 
-alg_choice = 1;
-
 N = 5;
 
 tic
-M = importdata('figure_1b_0.65.dat',' ');
+M = importdata('figure_1b_-4.5.dat',' ');
 
 PP = M(:,1:N+1);
 mu = M(:,N+2);
@@ -33,13 +31,11 @@ for k=1:length(M)
     mean_feature = P'*states;
 
     % Eric's minimization function, based on conjugate gradient.
-     if alg_choice == 1
     % MATLAB Optimization Toolbox minimization function.
     % Uses Optimization toolbox unconstrained minimization function.
         [param_list] =...
             fminunc(@(x)neg_log_like_binom...
             (x,states,mean_feature,P,binom),param_list_init,options);
-     end
 
     % Use the parameters found via minimization to calculate the probability
     % distribution from the Ising model.
@@ -80,5 +76,5 @@ DKLlist = DKLlistnew(IX);
 toc
 
 hold on
-plot(rho,DKLlist,'r')
+plot(rho,DKLlist,'g')
 axis([0 0.3 0 15e-3])

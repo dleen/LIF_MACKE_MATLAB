@@ -9,11 +9,11 @@ PP = M(:,1:N+1);
 mu = M(:,N+2);
 rho = M(:,N+3);
 
-avnum = 100;
+avnum = 5;
 
-for i=1:length(M)/10
-    mmu(i) = mean(mu((10*(i-1)+1):(10*i)));
-    rrho(i) = mean(rho((10*(i-1)+1):(10*i)));
+for i=1:length(M)/avnum
+    mmu(i) = mean(mu((avnum*(i-1)+1):(avnum*i)));
+    rrho(i) = mean(rho((avnum*(i-1)+1):(avnum*i)));
 end
 
 [B,IX] = sort(mmu);
@@ -27,11 +27,9 @@ PP = M(:,1:N+1);
 mu = M(:,N+2);
 rho = M(:,N+3);
 
-avnum = 100;
-
-for i=1:length(M)/10
-    mmu(i) = mean(mu((10*(i-1)+1):(10*i)));
-    rrho(i) = mean(rho((10*(i-1)+1):(10*i)));
+for i=1:length(M)/avnum
+    mmu(i) = mean(mu((avnum*(i-1)+1):(avnum*i)));
+    rrho(i) = mean(rho((avnum*(i-1)+1):(avnum*i)));
 end
 
 [B,IX] = sort(mmu);
@@ -44,11 +42,9 @@ PP = M(:,1:N+1);
 mu = M(:,N+2);
 rho = M(:,N+3);
 
-avnum = 100;
-
-for i=1:length(M)/10
-    mmu(i) = mean(mu((10*(i-1)+1):(10*i)));
-    rrho(i) = mean(rho((10*(i-1)+1):(10*i)));
+for i=1:length(M)/avnum
+    mmu(i) = mean(mu((avnum*(i-1)+1):(avnum*i)));
+    rrho(i) = mean(rho((avnum*(i-1)+1):(avnum*i)));
 end
 
 [B,IX] = sort(mmu);
