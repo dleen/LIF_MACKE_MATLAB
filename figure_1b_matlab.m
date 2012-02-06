@@ -5,7 +5,7 @@ alg_choice = 1;
 N = 5;
 
 tic
-M = importdata('figure_1b_0.65.dat',' ');
+M = importdata('figure_1b_-62.dat',' ');
 
 PP = M(:,1:N+1);
 mu = M(:,N+2);
@@ -80,5 +80,5 @@ DKLlist = DKLlistnew(IX);
 toc
 
 hold on
-plot(rho,DKLlist,'r')
+plot(rho,DKLlist,'k')
 axis([0 0.3 0 15e-3])
