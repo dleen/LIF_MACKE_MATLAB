@@ -5,7 +5,7 @@ clear all;
 alg_choice = 1;
 
 % Number of neurons.
-N = 20;
+N = 100;
 
 % Load data from a file. 
 % The file.dat has the form:
@@ -14,7 +14,7 @@ N = 20;
 % We keep mu and rho fixed over trials. We have multiple
 % trials so that we can get an average and smooth out
 % some of the inherent noise.
-M = importdata('alex.dat',' ');
+M = importdata('figure_2a_0.64.dat',' ');
 
 % PP is a matrix where each row is a prob dist.
 PP = M(:,1:N+1);
