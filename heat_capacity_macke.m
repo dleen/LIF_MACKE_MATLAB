@@ -2,26 +2,31 @@ clear all;
 clf
 
 % Set the number of neurons used:
-N = 100;
+N = [100 100 100];
 
 % Import the data to be used.
 % Data file has the form:
 % p(x_0) p(x_1) ... p(x_(N-1)) mu rho
-M = importdata('figure_2a_EIF_0.39.dat',' ');
+M{1} = importdata('figure_2a_0.325.dat',' ');
+M{2} = importdata('figure_2a_0.49.dat',' ');
+M{3} = importdata('figure_2a_0.73.dat',' ');
 
 % PP contains the probability distributions.
 % Each row represents a single run at mean mu and corr rho.
-PP = M(:,1:N+1);
-mu = M(:,N+2);
-rho = M(:,N+3);
 
 % Temperature
 T = linspace(0.25,4,200);
 
 % For a colorful plot.
-CM = hsv(length(N));
+CM = hsv(3);
 
-for j=1:length(N)
+for j=1:3
+    
+    PP = M{j}(:,1:N+1);
+    mu = M{j}(:,N+2);
+    rho = M{j}(:,N+3);
+
+    
     % Calculate the correct binomial coefficients.
     binom = zeros(N(j)+1,1);
     for i=0:N(j)
@@ -52,3 +57,6 @@ end
 
 % Plot the line T=1.
 plot(0,linspace(0,max(c),200),'r')
+
+xlabel('Temperature T','fontsize',16)
+ylabel('Specific heat','fontsize',16)
